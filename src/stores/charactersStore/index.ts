@@ -1,4 +1,4 @@
-import to from 'await-to-js';
+/*import to from 'await-to-js';
 import { observable, action } from 'mobx';
 
 // * Types
@@ -21,13 +21,11 @@ class CharacterStore {
 		if (error) {
 			return;
 		}
-
 		this.charactersData.count = responseData.count;
 		this.charactersData.next = responseData.next;
 		this.charactersData.previous = responseData.previous;
 		this.charactersData.results = responseData.results;
-
 	}
 }
 
-export default new CharacterStore();
+export default new CharacterStore();*/

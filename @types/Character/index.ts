@@ -21,5 +21,5 @@ export type TCharacters = {
 	count?: number,
 	next?: string,
 	previous?: string,
-	results?: []
+	results: []
 }
