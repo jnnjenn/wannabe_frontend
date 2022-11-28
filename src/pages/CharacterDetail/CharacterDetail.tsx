@@ -48,7 +48,7 @@ const CharacterDetail = () => {
       <NavBar/>
 			<BackgroundCharacter title='>> Character Detail ' />
 			<div className="w-[100vw] bg-gray-50 p-8 flex justify-center align-center">
-				<div className="w-4/5 p-8 border-t-4 border-yellow-300 bg-white rounded-lg shadow-md">
+				<div className="lg:w-4/5 mobile:w-11/12 p-8 border-t-4 border-yellow-300 bg-white rounded-lg shadow-md">
 
 						<div className="flex items-center justify-between mb-4">
 							<h5 className="text-[30px] font-bold leading-none text-gray-800">{characterDetails.name}</h5>
