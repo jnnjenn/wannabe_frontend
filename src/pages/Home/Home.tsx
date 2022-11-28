@@ -1,10 +1,10 @@
 // Import components
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { to } from 'await-to-js';
 
 // Import store
-import { changeResults } from '../../features/characters/characterReducer';
+import { changeResults } from '../../app/characterReducer';
 
 // Import Components
 import Top from "../../components/Top";
@@ -19,10 +19,11 @@ import { getCharacters } from '../../services/http';
 
 const Home = () => {
 	// * State Store
+	const { characters } = useSelector((state: any) => state);
   const dispatch = useDispatch(); 
 
 	const getDataCharacters = async () => {
-		const [error, responseData] = await to<any>(getCharacters('', '1'));
+		const [error, responseData] = await to<any>(getCharacters(characters.searchWord, '1'));
 		if (error) {
 			return;
 		}

@@ -3,7 +3,7 @@ import to from 'await-to-js';
 import { useSelector, useDispatch } from 'react-redux'
 
 // Import Store
-import { changeResults } from '../features/characters/characterReducer';
+import { changeResults } from '../app/characterReducer';
 
 // Import Services
 import { getCharacters } from '../services/http';
@@ -51,7 +51,7 @@ const Pagination = () => {
 	}
 
 	const actionBtnPrevNext = async (nextNum:number) => {
-		const [error, responseData] = await to<any>(getCharacters('', nextNum.toString()));
+		const [error, responseData] = await to<any>(getCharacters(characters.searchWord, nextNum.toString()));
 		if (error) {
 			return;
 		}

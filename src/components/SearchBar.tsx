@@ -1,9 +1,36 @@
+// Import libraries
+import to from 'await-to-js';
+import { KeyboardEvent, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { changeResults, changeSearchWord } from '../app/characterReducer';
+import { getCharacters } from '../services/http';
 
 const Searcher = () => {
+	// * State store
+	const dispatch = useDispatch(); 
+	const { characters } = useSelector((state: any) => state);
+
+	const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+		const searchWord: string = e.currentTarget.value;
+		const keyEnter = e.code;
+		if(keyEnter === 'Enter' || keyEnter === 'NumpadEnter'  || keyEnter === 'NumpadEnter'){
+			dispatch(changeSearchWord(searchWord));
+		}		
+	};
   
-	const actionInputSearch = () => {
-	
+	const getDataCharacters = async () => {
+		const [error, responseData] = await to<any>(getCharacters(characters.searchWord, '1'));
+		if (error) {
+			return;
+		}
+		dispatch(changeResults(responseData));
 	}
+
+	useEffect(() => {
+		getDataCharacters()
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [characters.searchWord])
+	
 	
 	return (
 		<div className="w-96">
@@ -14,7 +41,7 @@ const Searcher = () => {
 						<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 					</svg>
 				</span>
-				<input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search a character..." type="text" name="search" />
+				<input onKeyUp={handleKeyPress} className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Type and press Enter to search..." type="text" name="search" />
 			</label>
 		</div>
 	)

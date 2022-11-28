@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 // Import Types
-import { TCharacters } from "../../../@types/Character/index";
+import { TCharacters } from "../../@types/Character/index";
 
 
 const initialState: TCharacters = {
@@ -39,14 +39,13 @@ export const characterReducer = createSlice({
         state.actualPage = newPage - 1;
       }
     },
-    /*likeManage: (state, action: PayloadAction<any>) => {
-      state.list[action.payload.id].liked = action.payload.liked
-      window.localStorage.setItem('posts', JSON.stringify(state.list))
-    },*/
+    changeSearchWord: (state, action: PayloadAction<string>) => {
+      state.searchWord = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { changeResults } = characterReducer.actions;
+export const { changeResults, changeSearchWord } = characterReducer.actions;
 
 export default characterReducer.reducer;

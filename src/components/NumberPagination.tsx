@@ -1,20 +1,22 @@
 // Import Libraries
 import to from 'await-to-js';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 // Import Services
 import { getCharacters } from '../services/http';
 
 // Import Store
-import { changeResults } from '../features/characters/characterReducer';
+import { changeResults } from '../app/characterReducer';
 
 const NumberPagination = (props:any) : JSX.Element => {
-	// * State Store
+	// * State store
+	const { characters } = useSelector((state: any) => state);
   const dispatch = useDispatch(); 
+
 	const styleBtn = props.actualPage === props.nextNum ? 'bg-gray-200' : 'bg-transparent';
 
 	const actionBtnGoTo = async (nextNum:number) => {
-		const [error, responseData] = await to<any>(getCharacters('', nextNum.toString()));
+		const [error, responseData] = await to<any>(getCharacters(characters.searchWord , nextNum.toString()));
 		if (error) {
 			return;
 		}
