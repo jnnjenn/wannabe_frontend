@@ -41,7 +41,7 @@ const Home = () => {
       <NavBar/>
 			<BackgroundCharacter title='>> Character' />
 			<div className="w-[100vw] bg-gray-50 p-8 flex justify-center align-center">
-				<div className="w-4/5 p-8 border-t-4 border-yellow-300 bg-white rounded-lg shadow-md">
+				<div className="lg:w-4/5 p-8 border-t-4 border-yellow-300 bg-white rounded-lg shadow-md">
 					<Searcher/>
 					<GridCharacter/>
 					<Pagination/>

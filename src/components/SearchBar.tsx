@@ -33,7 +33,7 @@ const Searcher = () => {
 	
 	
 	return (
-		<div className="w-96">
+		<div className="lg:w-96">
 			<label className="relative block">
 				<span className="sr-only">Search</span>
 				<span className="absolute inset-y-0 left-0 flex items-center pl-2">
