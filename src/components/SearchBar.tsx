@@ -13,7 +13,8 @@ const Searcher = () => {
 	const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
 		const searchWord: string = e.currentTarget.value;
 		const keyEnter = e.code;
-		if(keyEnter === 'Enter' || keyEnter === 'NumpadEnter'  || keyEnter === 'NumpadEnter'){
+		console.log('SearchBar.tsx - 16  >>>>>>>>> keyEnter: ', keyEnter);
+		if(keyEnter === 'Enter' || keyEnter === 'NumpadEnter'  || keyEnter === 'NumpadEnter' || keyEnter === '13'){
 			dispatch(changeSearchWord(searchWord));
 		}		
 	};
