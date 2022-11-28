@@ -1,3 +1,4 @@
+import { TCharacters } from "./../../@types/Character/index";
 import axios from 'axios';
 import to from 'await-to-js';
 
@@ -16,8 +17,7 @@ http.interceptors.response.use(
 
 export const getCharacters = async (search:string, page:string) => {
 	const urlGetData = search ? `/people/?search=${search}&page=${page}` : `/people/?page=${page}`;
-  //console.log('http.ts - 19  >>>>>>>>> urlGetData: ', urlGetData);
-  const [error, response] = await to(http.get(urlGetData));
+  const [error, response] = await to(http.get<TCharacters>(urlGetData));
   if (error) {
     throw error;
   }

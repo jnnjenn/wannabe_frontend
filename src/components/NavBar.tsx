@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const NavBar = () => {
+  const navigate = useNavigate();
 
   const actionBtnAboutMe = () => {
     window.open("https://lnkd.in/eHUTHrXD", "_blank")
+  }
+
+  const actionBtnHome = () => {
+    navigate('/');
   }
 
   return (
@@ -10,11 +17,11 @@ const NavBar = () => {
         SWAPI
       </div>
       <ul className="lg:justify-around md:justify-between items-center sm:flex hidden">
-        <li className="list-none inline-block mx-4 hover:border-b-4 border-yellow-300 cursor-pointer p-2 transition-all txt-dark ">Home</li>
+        <li className="list-none inline-block mx-4 hover:border-b-4 border-yellow-300 cursor-pointer p-2 transition-all txt-dark " onClick={actionBtnHome}>Home</li>
         <li className="list-none inline-block mx-4 hover:border-b-4 border-yellow-300 cursor-pointer p-2 transition-all txt-dark " onClick={actionBtnAboutMe}>About Me</li>
         <li className="list-none">
           <button className="text-center justify-center flex cursor-wait">
-            <img className="w-[50px]" src="./assets/logo_jo_icon.png" alt="Jenniffer Orjuela | FullStack Software Engineer" id="icon" />
+            <img className="w-[50px]" src="../../../assets/logo_jo_icon.png" alt="Jenniffer Orjuela | FullStack Software Engineer" id="icon" />
           </button>
         </li>
       </ul>

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import CharacterDetail from '../pages/CharacterDetail/CharacterDetail';
 
 // Import Pages
 import Home from '../pages/Home/Home';
@@ -10,6 +11,7 @@ const newRoutes = () => {
   return (
     <Routes>
       <Route path={'/'} element={<Home />} />
+      <Route path={`/character-detail/:id`} element={<CharacterDetail />} />
     </Routes>
   );
 };
