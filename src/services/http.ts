@@ -16,7 +16,16 @@ http.interceptors.response.use(
 );
 
 export const getCharacters = async (search:string, page:string) => {
-	const urlGetData = search ? `/people/?search=${search}&page=${page}` : `/people/?page=${page}`;
+	const urlGetData = search ? `people/?search=${search}&page=${page}` : `/people/?page=${page}`;
+  const [error, response] = await to(http.get<TCharacters>(urlGetData));
+  if (error) {
+    throw error;
+  }
+  return response;
+};
+
+export const getCharacterDetails = async (idCharacter:any) => {
+	const urlGetData = `people/${idCharacter}/`;
   const [error, response] = await to(http.get<TCharacters>(urlGetData));
   if (error) {
     throw error;

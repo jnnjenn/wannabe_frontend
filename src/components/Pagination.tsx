@@ -3,7 +3,7 @@ import to from 'await-to-js';
 import { useSelector, useDispatch } from 'react-redux'
 
 // Import Store
-import { changeResults } from '../app/characterReducer';
+import { changeResults } from '../app/charactersReducer';
 
 // Import Services
 import { getCharacters } from '../services/http';

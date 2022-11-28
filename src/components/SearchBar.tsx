@@ -2,7 +2,7 @@
 import to from 'await-to-js';
 import { KeyboardEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { changeResults, changeSearchWord } from '../app/characterReducer';
+import { changeResults, changeSearchWord } from '../app/charactersReducer';
 import { getCharacters } from '../services/http';
 
 const Searcher = () => {

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { to } from 'await-to-js';
 
 // Import store
-import { changeResults } from '../../app/characterReducer';
+import { changeResults } from '../../app/charactersReducer';
 
 // Import Components
 import Top from "../../components/Top";
@@ -41,7 +41,7 @@ const Home = () => {
       <NavBar/>
 			<BackgroundCharacter title='>> Character' />
 			<div className="w-[100vw] bg-gray-50 p-8 flex justify-center align-center">
-				<div className="w-4/5 p-8 border-t-4 border-yellow-300 bg-white rounded-lg">
+				<div className="w-4/5 p-8 border-t-4 border-yellow-300 bg-white rounded-lg shadow-md">
 					<Searcher/>
 					<GridCharacter/>
 					<Pagination/>

@@ -4,7 +4,6 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 // Import Types
 import { TCharacters } from "../../@types/Character/index";
 
-
 const initialState: TCharacters = {
   searchWord : '',
   perPage: 10,
@@ -16,7 +15,7 @@ const initialState: TCharacters = {
 	results: []
 };
 
-export const characterReducer = createSlice({
+export const charactersReducer = createSlice({
   name: "character",
   initialState,
   reducers: {
@@ -46,6 +45,5 @@ export const characterReducer = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { changeResults, changeSearchWord } = characterReducer.actions;
-
-export default characterReducer.reducer;
+export const { changeResults, changeSearchWord } = charactersReducer.actions;
+export default charactersReducer.reducer;

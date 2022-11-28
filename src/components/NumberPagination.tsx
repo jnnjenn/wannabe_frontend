@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getCharacters } from '../services/http';
 
 // Import Store
-import { changeResults } from '../app/characterReducer';
+import { changeResults } from '../app/charactersReducer';
 
 const NumberPagination = (props:any) : JSX.Element => {
 	// * State store

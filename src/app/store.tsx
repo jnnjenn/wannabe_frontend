@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import characterReducer from './characterReducer'
+import charactersReducer from './charactersReducer'
+import characterDetailReducer from './characterDetailReducer'
 
 export const store = configureStore({
   reducer: {
-    characters : characterReducer
+    characters : charactersReducer,
+    characterDetails : characterDetailReducer,
   },
 })
 
