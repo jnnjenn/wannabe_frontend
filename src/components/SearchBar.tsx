@@ -13,7 +13,7 @@ const Searcher = () => {
 	const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
 		const searchWord: string = e.currentTarget.value;
 		const keyEnter = e.code;
-		if(keyEnter === 'Enter' || keyEnter === 'NumpadEnter'  || keyEnter === 'NumpadEnter'){
+		if(keyEnter === 'Enter' || keyEnter === 'NumpadEnter'  || keyEnter === 'NumpadEnter' || searchWord.length >= 3 || searchWord.length === 0){
 			dispatch(changeSearchWord(searchWord));
 		}		
 	};
